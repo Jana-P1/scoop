@@ -10,8 +10,14 @@
         alt="<%= user.profile.name %> avatar"
       />
     </div>
-  <% } %>
-  <h2>Welcome to Scoop! Login with Google to spread the word about your favorite ice cream shops and flavors</h2>
+    <div id="enter-app">
+      <form action="/shops" method="GET">
+        <button type="submit">Enter Scoop</button>
+      </form>
+    </div>
+  <% } else { %>
+    <h2>Welcome to Scoop! Login with Google to spread the word about your favorite ice cream shops and flavors</h2>
+  <% } %>   
 </main>
 
 <%- include('./partials/footer') %>
