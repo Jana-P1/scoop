@@ -1,0 +1,22 @@
+<% include("../partials/html-head") %> 
+<% include("../partials/nav") %> 
+
+<main>
+  <% profiles.forEach(profile => { %>
+    <div>
+      <a href="/profiles/<%= profile._id %> ">
+        <% if (profile.avatar) { %> 
+          <img src="<%= profile.avatar %>" alt="<%= profile.name %> ">
+        <% } else { %>
+          <img src="https://picsum.photos/200" alt="A placeholder avatar">
+        <% } %> 
+        <div>
+          <p><%= profile.name %> </p>
+        </div>     
+      </a>
+    </div>
+
+  <% }) %> 
+</main>
+
+<% include("../partials/footer") %> 

@@ -14,7 +14,14 @@ function newFlavor(req, res) {
   })
 }
 
+function create(req, res) {
+  Flavor.create(req.body)
+  .then(flavor => {
+    res.redirect("/shops")
+  })
+}
+
 export {
   newFlavor as new,
-  
+  create
 }

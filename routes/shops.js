@@ -11,7 +11,7 @@ router.get("/new", isLoggedIn, shopsCtrl.new )
 
 // POST
 // localhost:3000/shops
-router.post("/", shopsCtrl.create)
+router.post("/", isLoggedIn, shopsCtrl.create)
 
 export {
   router

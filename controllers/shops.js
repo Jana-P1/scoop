@@ -25,14 +25,20 @@ function newShop(req, res) {
   })
 }
 function create(req, res) {
+  // create functionality to read location property as: String, String
   Shop.create(req.body)
+  .populate("")
   .then(shop => {
-    res.redirect("/shops")
+    res.redirect(`/shops/${shop._id}`)
   })
   .catch(error => {
     console.log(error)
-    res.redirect("/shops")
+    res.redirect("/shops/new")
   })
+}
+
+function addFlavorToShop (req, res) {
+  Shop.findById
 }
 
 export {

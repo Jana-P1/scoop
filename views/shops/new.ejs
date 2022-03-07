@@ -13,8 +13,9 @@
     <label for="location">Location:
       <input type="text" name="location">
     </label><br>
+    </form>
     <label for="flavors">Flavors:
-      <% flavors.forEach(flavor => { %>
+      <% shops.flavors.forEach(flavor => { %>
         <option value="<%= flavor._id%>"><%= flavor.name%></option>
       <% }) %> 
     </label><br>
