@@ -2,20 +2,24 @@
 <%- include("../partials/nav") %>
 <main>
   <h1>Scoop</h1>
-  <p>Scoop is THE place for ice cream lovers to dish on their favorite ice cream shops and their most favored flavors</p>
+  <h2>Scoop is THE place for ice cream lovers to dish on their favorite ice cream shops and their most favored flavors</h2>
   <div class="links">
     <!-- insert <a> tag here to view all shops -->
     <!-- insert <a> tag here  to create a profile page for an ice cream -->
   </div>    
-  <form action="/ice cream" method="GET" id="search-bar">
-    <input id="search" type="search" name="name" placeholder="Search for ice cream shops by shop name or location" value="<%= name %>" autocomplete="off">
+  <form action="/shops" method="GET" id="search-bar">
+    <input id="search" type="search" name="name" placeholder="Search for ice cream shops by shop name or location"  autocomplete="off">
     <button class="btn" type="submit"> Search
     </button>
   </form>
-  <section>  
-    <form action="/shops/<%= shop.id %> " method="GET">
-      <!-- insert forEach to list all shops in the app -->
-    </form>
+  <section id="shop-list">  
+    <h2>All Ice Cream Shops</h2>
+    <ul>
+      <% shops.forEach(shop => { %> 
+        <li><%= shop.name %>  </li>
+      <% }) %>   
+    </ul>
+    
   </section>
 </main>
 
