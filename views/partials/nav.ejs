@@ -4,15 +4,18 @@
 </head>
 <body>
   <nav>
-    <% if (user) { %>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
-    <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
-      </a>
-    <% } %>
+    <h1>Scoop</h1>
+    <div>
+      <% if (user) { %>
+        <a href="/auth/logout">
+          <button type="submit">Logout</button>
+        </a>
+      <% } else { %>
+        <a href="/auth/google" class="siwg-link">
+          <button type="submit" class="siwg">
+            <img id="siwg-image" alt="Sign in with Google" />
+          </button>
+        </a>
+      <% } %>
+    </div>
   </nav>

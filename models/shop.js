@@ -1,6 +1,9 @@
 import mongoose from "mongoose"
 const Schema = mongoose.Schema
 const shopSchema = new Schema({
+  title: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,
