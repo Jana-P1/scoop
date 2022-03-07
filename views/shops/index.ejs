@@ -11,12 +11,16 @@
     <input id="search" type="search" name="name" placeholder="Search for ice cream shops by shop name or location"  autocomplete="off">
     <button class="btn" type="submit"> Search
     </button>
+  </form>  
+      <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add">Add Shop</a>
   </form>
   <section id="shop-list">  
     <h2>All Ice Cream Shops</h2>
     <ul>
       <% shops.forEach(shop => { %> 
-        <li><%= shop.name %>  </li>
+        <li>
+          <a href="<%= shop.id %>"><%= shop.name %></a>  
+        </li>
       <% }) %>   
     </ul>
     

@@ -1,8 +1,9 @@
 import { Router } from "express"
 const router = Router()
 import * as shopsCtrl from "../controllers/shops.js"
+import { isLoggedIn } from "../middleware/middleware.js"
 
-router.get("/", shopsCtrl.index)
+router.get("/", isLoggedIn, shopsCtrl.index)
 
 export {
   router
