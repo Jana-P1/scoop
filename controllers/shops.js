@@ -21,9 +21,6 @@ function newShop(req, res) {
 }
 
 function create(req, res) {
-  if(req.body.location) {
-    console.log("Location:", location) 
-  }
   const shop = new Shop(req.body)
   shop.save((error) => {
     if (error) return res.render("shops/new")
@@ -31,12 +28,25 @@ function create(req, res) {
   })
 }
 
-// function addFlavorToShop (req, res) {
-//   Shop.findById
-// }
+function show(req, res) {
+  Shop.findById(req.params.id)
+  .then(shop => {
+    res.render("shop/show", {
+      title: "Ice Cream Shop",
+      shop,
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect("/shop/new")
+  })
+  }
+
+
 
 export {
   index,
   newShop as new,
   create,
+  show,
 }
