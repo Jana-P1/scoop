@@ -18,27 +18,22 @@ function newShop(req, res) {
   res.render("shops/new", {
     title: "Add a New Ice Cream Shop",
   })
-  .catch(error => {
-    console.log(error)
-    res.redirect("/shops")
-  })
 }
+
 function create(req, res) {
-  // create functionality to read location property as: String, String
-  Shop.create(req.body)
-  .populate("flavors")
-  .then(shop => {
+  if(req.body.location) {
+    console.log("Location:", location) 
+  }
+  const shop = new Shop(req.body)
+  shop.save((error) => {
+    if (error) return res.render("shops/new")
     res.redirect(`/shops/${shop._id}`)
-  })
-  .catch(error => {
-    console.log(error)
-    res.redirect("/shops/new")
   })
 }
 
-function addFlavorToShop (req, res) {
-  Shop.findById
-}
+// function addFlavorToShop (req, res) {
+//   Shop.findById
+// }
 
 export {
   index,

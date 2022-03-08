@@ -12,12 +12,7 @@
         <input type="file" name="imageUrl">
       </label><br>
       <label for="location">Location:
-        <input type="text" name="location">
-      </label><br>
-      <label for="flavors">Flavors:
-        <% shop.flavors.forEach(flavor => { %>
-          <option value="<%= flavor._id%>"><%= flavor.name%></option>
-        <% }) %> 
+        <input type="text" name="location" placeholder="City, State">
       </label><br>
       <button type="submit">Add Shop</button>
     </form>
