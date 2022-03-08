@@ -1,0 +1,20 @@
+<% include("../partials/html-head") %> 
+<% include("../partials/nav") %>
+
+<main>
+  <% if (profile.avatar) { %>
+    <div>
+      <img src="<%= profile.avatar %> "
+      alt="<%= profile.name %> ">
+    </div>
+  <% } %>
+  <h1><%= profile.name %>'s Favorite flavors: </h1>
+  <ul>
+    <% flavors. %> 
+  </ul>
+  <% if (isSelf) {%>
+
+  <% } %>        
+</main>
+
+<% include("../partials/footer") %> 
