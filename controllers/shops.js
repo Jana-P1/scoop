@@ -2,8 +2,9 @@ import { Shop } from "../models/shop.js"
 import { Flavor } from "../models/flavor.js"
 
 function index(req, res) {
-  let modelQuery = req.query.name ?
-  { name: new RegExp(req.query.name, "i") } : {}
+  let modelQuery = req.query.name 
+    ? { name: new RegExp(req.query.name, "i") } 
+    : {}
   Shop.find(modelQuery)
   .sort("name")
   .exec(function (error, shops) {
@@ -31,18 +32,17 @@ function create(req, res) {
 function show(req, res) {
   Shop.findById(req.params.id)
   .then(shop => {
-    res.render("shop/show", {
-      title: "Ice Cream Shop",
+    console.log(shop)
+    res.render("shops/show", {
+      title: "Scoop",
       shop,
     })
   })
   .catch(error => {
     console.log(error)
-    res.redirect("/shop/new")
+    res.redirect("/shops/new")
   })
   }
-
-
 
 export {
   index,

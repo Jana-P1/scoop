@@ -1,5 +1,5 @@
-<%- include("../partials/head-html") %> 
-<%- include("../partials/nav") %> 
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %> </h1>
@@ -7,20 +7,20 @@
     <div>Shop Name:</div>
     <div><%= shop.name %> </div>
     <div>Image:</div>
-    <div><img src="<%= shop.image%>" ><%=  %> </div>
+    
     <div>Location:</div>
     <div><%= shop.location %> </div>
     <div>Favored Flavors:</div>
     <div>
-      <ul>
-        <% shop.flavors.forEach(flavor => { %>
+      <!-- <ul>
+        <%# shop.flavors.forEach(flavor => { %>
           <li>
-            <%= flavor.name %>
+            <%# flavor.name %>
           </li>
-        <% }) %> 
-      </ul>
+        <%# }) %> 
+      </ul> -->
     </div>
   </section>
 </main>
 
-<%- include("../partials/footer") %> 
+<%- include('../partials/footer') %>
