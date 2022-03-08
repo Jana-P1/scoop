@@ -17,7 +17,11 @@ function newFlavor(req, res) {
 function create(req, res) {
   Flavor.create(req.body)
   .then(flavor => {
-    res.redirect("/shops")
+    res.redirect("/flavors/new")
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect("/flavors/new")
   })
 }
 

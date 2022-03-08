@@ -1,0 +1,25 @@
+<%- include("../partials/html-head") %> 
+<%- include("../partials/nav") %> 
+
+<main>
+  <h1><%= title %> </h1>
+  <form action="/flavors/new" method="POST">
+    <label 
+    for="name">
+    What's your flavor?</label>
+    <input type="text" name="name" id="flavor-name">
+    <button type="submit">Add Flavor</button>
+  </form>
+  <div id="existing-flavors">
+    <h2>Here are the flavors other ice cream lovers have added:</h2>
+    <ul>
+    <% flavors.forEach(flavor => { %>
+      <li>
+        <%= flavor.name %> 
+      </li>
+    <% }) %> 
+    </ul>
+  </div>
+</main>
+
+<%- include("../partials/footer") %> 

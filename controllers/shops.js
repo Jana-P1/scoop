@@ -2,17 +2,16 @@ import { Shop } from "../models/shop.js"
 import { Flavor } from "../models/flavor.js"
 
 function index(req, res) {
-  Shop.find({})
-  .then(shops => {
+  let modelQuery = req.query.name ?
+  { name: new RegExp(req.query.name, "i") } : {}
+  Shop.find(modelQuery)
+  .sort("name")
+  .exec(function (error, shops) {
+    if (error) return next(error)
     res.render("shops/index", {
       shops,
       title: "Scoop"
-
     })
-  })
-  .catch(error => {
-    console.log(error)
-    res.redirect("/shops")
   })
 }
 function newShop(req, res) {
@@ -27,7 +26,7 @@ function newShop(req, res) {
 function create(req, res) {
   // create functionality to read location property as: String, String
   Shop.create(req.body)
-  .populate("")
+  .populate("flavors")
   .then(shop => {
     res.redirect(`/shops/${shop._id}`)
   })
