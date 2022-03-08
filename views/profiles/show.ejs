@@ -4,17 +4,23 @@
 <main>
   <% if (profile.avatar) { %>
     <div>
-      <img src="<%= profile.avatar %> "
-      alt="<%= profile.name %> ">
+      <img 
+      class="profile-avatar"
+      src="<%= profile.avatar %>"
+      alt="<%= profile.name %> avatar"
+      >
     </div>
   <% } %>
-  <h1><%= profile.name %>'s Favorite flavors: </h1>
+  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  <h2>Ice cream shops <%= profile.name %> visited: </h2>
   <ul>
-    <% flavors. %> 
-  </ul>
-  <% if (isSelf) {%>
-
-  <% } %>        
+    <% profile.favorites.forEach(favorite => { %>
+      <li>
+        <%= favorite.name %> 
+      </li>
+    <% }) %> 
+  </ul>   
+  
 </main>
 
 <% include("../partials/footer") %> 

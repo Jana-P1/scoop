@@ -1,4 +1,5 @@
 import { Profile } from "../models/profile.js"
+import { Shop } from "../models/shop.js"
 
 function index(req, res) {
   Profile.find({})
@@ -14,23 +15,20 @@ function index(req, res) {
   })
 }
 function show(req, res) {
+  console.log("a profile")
   Profile.findById(req.params.id)
-  .then(profile => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const isSelf = self._id.equals(profile._id)
-      res.render("profiles/show", {
-        title: `${profile.name}'s profile`,
-        profile,
-        isSelf
+  console.log(req.params.id)
+  .populate("favorites")
+  .exec(function(error, profile) {
+    Favorite.find({_id: {$nin: profile.favorites}},
+      function(error, favorites) {
+        res.render("profiles/show", {
+          profile,
+          favorites
+        })
       })
     })
-  })
-  .catch((err) => {
-    console.log(err)
-    res.redirect("/")
-  })
-}
+  }
 
 export {
   index,

@@ -5,8 +5,9 @@ const Schema = mongoose.Schema
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  flavors: [{
-    type: Schema.Types.ObjectId, ref: "Flavor"}],
+  favorites: [{
+    type: Schema.Types.ObjectId, ref: "Flavor"
+  }]   
 }, {
   timestamps: true
 })
