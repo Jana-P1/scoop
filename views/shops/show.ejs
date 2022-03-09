@@ -22,13 +22,13 @@
         <td class="header">Location:</td>
         <td><%= shop.location %> </td>
       </tr>
-      <tr>
-        <td class="header">Favored Flavors:</td>
-          <% shop.flavors.forEach(flavor => { %>
-            <td><%= flavor.name %></td>
-            <% }) %> 
-      </tr>
     </table>
+    <h3>Favored Flavors:</h3>
+    <ul>
+      <% shop.flavors.forEach(flavor => { %>
+        <li><%= flavor.name %></li>
+      <% }) %> 
+    </ul>
     <form action="/shops/<%= shop._id %>/flavors" method="POST">
       <select name="flavorId" >
       <% flavors.forEach(flavor => { %>

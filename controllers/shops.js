@@ -70,6 +70,10 @@ function edit(req, res) {
       title: "Edit shop"
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/shops/show")
+  })
 }
 
 

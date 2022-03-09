@@ -1,0 +1,48 @@
+<%- include("../partials/html-head") %> 
+<%- include("../partials/nav") %>
+
+<main>
+  <h1><%= title %> </h1>
+  <form action="shops/<%= shop._id %>?_method=PUT" method="POST">
+    <table>
+      <tr>
+        <td>
+          <label for="name">Shop Name:</label>
+        </td>
+        <td>
+          <input type="text" name="name" value="<%= shop.name %> ">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="imageUrl">Image:</label>
+        <td>
+          <input type="file" name="imageUrl" accept="image/*" capture value="<%= shop.imageUrl %>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="location">Location:</label>
+        </td>
+        <td>
+          <input type="text" name="location" value="<%= shop.location %>">
+        </td>
+      </tr>
+    </table>
+    <section id="flavors">
+      <h3>Favored Flavors:</h3>
+        <ul>
+          <% shop.flavors.forEach(flavor => { %>
+            <li><%= flavor.name %>
+              <form action="/shops/<%= shop._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete flavor</button>
+              </form>
+            </li>
+          <% }) %>
+        </ul>
+    </section>
+    <button type="submit">Update Shop</button>
+  </form>
+</main>
+
+<%- include("../partials/footer") %> 
