@@ -16,20 +16,30 @@ function index(req, res) {
 }
 function show(req, res) {
   Profile.findById(req.params.id)
-  .populate("favorites")
-  .exec(function(error, profile) {
-    Flavor.find({_id: {$nin: profile.favorites}},
-      function(error, favorites) {
-        res.render("profiles/show", {
-          title: "Scoop",
-          profile,
-          favorites
-        })
+  .then(profile => {
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const isSelf = self._id.equals(profile._id)
+      res.render("profiles/show", {
+        title: `${profile.name}'s profile`,
+        profile,
+        isSelf
       })
     })
+  })
   }
+function addFavoriteFlavors(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.favorites.push(req.body.favoriteId)
+    profile.save(function(error) {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+}
 
 export {
   index,
   show,
+  addFavoriteFlavors,
 }

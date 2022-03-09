@@ -11,7 +11,9 @@
       >
     </div>
   <% } %>
-  <h1><%= profile.name %>'s favorite flavors:</h1>
+  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  <h2>Get the scoop</h2>
+  <h3><%= isSelf ? "Your" : profile.name %> favorite flavors </h3>
   <ul>
     <% profile.favorites.forEach(favorite => { %>
       <li>
@@ -19,7 +21,17 @@
       </li>
     <% }) %> 
   </ul>   
-  
+  <% if (isSelf) { %>
+    <h4>Add more to your favorite flavors:</h4>
+    <form action="/profiles/<%= profile._id %>/flavors" method="POST">
+    <select name="favoriteId">
+      <% profile.favorites.forEach(favorite => { %>
+        <option value="<%= favorite._id %>"><%= favorite.name %></option>
+      <% }) %> 
+    </select>
+    <button type="submit">Add more flavors</button>
+  </form>
+  <% } %>    
 </main>
 
 <%- include("../partials/footer") %> 

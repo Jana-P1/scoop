@@ -75,6 +75,17 @@ function edit(req, res) {
     res.redirect("/shops/show")
   })
 }
+function deleteFlavor(req, res) {
+  Shop.findById(req.params.id)
+  .then(shop => {
+    shop.flavors.remove({_id: req.params.flavorId})
+    shop.save()
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect(`/shops/${shop._id}`)
+  })
+}
 
 
 export {
@@ -85,4 +96,5 @@ export {
   addFlavorToShops,
   deleteShop as delete,
   edit,
+  deleteFlavor
 }

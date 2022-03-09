@@ -34,7 +34,7 @@
         <ul>
           <% shop.flavors.forEach(flavor => { %>
             <li><%= flavor.name %>
-              <form action="/shops/<%= shop._id %>?_method=DELETE" method="POST">
+              <form action="/shops/<%= shop._id %>/<%= flavor._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete flavor</button>
               </form>
             </li>

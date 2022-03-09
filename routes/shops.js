@@ -20,6 +20,7 @@ router.post("/", isLoggedIn, shopsCtrl.create)
 router.post("/:id/flavors", isLoggedIn, shopsCtrl.addFlavorToShops)
 // DELETE - localhost:3000/shops
 router.delete("/:id", shopsCtrl.delete)
+router.delete("/:id/flavors/:flavorId", shopsCtrl.deleteFlavor)
 
 export {
   router
