@@ -11,14 +11,25 @@
     <div>Location:</div>
     <div><%= shop.location %> </div>
     <div>Favored Flavors:</div>
+    <ul>
+      <% shop.flavors.forEach(flavor => { %>
+        <li><%= flavor.name %></li>
+      <% }) %> 
+    </ul>
+    <form action="/flavors/new">
+      <button type="submit">
+        Add New Flavor
+      </button>
+    </form>  
     <div>
-      <!-- <ul>
-        <%# shop.flavors.forEach(flavor => { %>
-          <li>
-            <%# flavor.name %>
-          </li>
-        <%# }) %> 
-      </ul> -->
+      <form action="/shops/<%= shop._id %>/flavors" method="POST">
+        <select name="flavorId" >
+        <% flavors.forEach(flavor => { %>
+          <option value="<%= flavor._id %>"><%= flavor.name %></option>
+        <% }) %> 
+        </select>
+        <button type="submit">Add to favored flavors</button>
+      </form>
     </div>
   </section>
 </main>

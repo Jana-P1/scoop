@@ -3,23 +3,20 @@
 
 <main>
   <h1><%= title %> </h1>
-  <form action="/flavors" method="POST">
+  
     <label 
     for="name">
     What's your flavor?</label>
-    <input type="text" name="name" id="flavor-name">
+    <select>
+      <% flavors.forEach(flavor => { %>
+        <option><%= flavor.name %></option>
+      <% }) %> 
+    </select>
+    <form action="/flavors" method="POST">
+      <label for="name">Name of Flavor:</label>
+      <input type="text" name="name" id="flavor-name">
     <button type="submit">Add Flavor</button>
   </form>
-  <div id="existing-flavors">
-    <h2>Here are the flavors other ice cream lovers have added:</h2>
-    <ul>
-    <% flavors.forEach(flavor => { %>
-      <li>
-        <%= flavor.name %> 
-      </li>
-    <% }) %> 
-    </ul>
-  </div>
 </main>
 
 <%- include("../partials/footer") %> 

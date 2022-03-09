@@ -14,6 +14,8 @@ router.get("/:id", isLoggedIn, shopsCtrl.show)
 // POST
 // localhost:3000/shops
 router.post("/", isLoggedIn, shopsCtrl.create)
+// localhost:3000/:id/flavors
+router.post("/:id/flavors", isLoggedIn, shopsCtrl.addFlavorToShops)
 
 export {
   router
