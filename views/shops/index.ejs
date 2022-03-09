@@ -18,11 +18,12 @@
     <ul>
       <% shops.forEach(shop => { %> 
         <li>
-          <a href="/shops/<%= shop.id %>"><%= shop.name %></a>  
+          <i class="fa-solid fa-ice-cream fa-2x"></i>
+          <a href="/shops/<%= shop.id %>"><%= shop.name %></a><form action="/shops/<%=shop._id %>?_method=DELETE" method="POST">
+            <button>Delete Shop</button></form>
         </li>
       <% }) %>   
-    </ul>
-    
+      </ul>
   </section>
 </main>
 

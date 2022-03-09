@@ -43,7 +43,7 @@ function show(req, res) {
     })
   })
   }
-  function addFlavorToShops(req, res) {
+function addFlavorToShops(req, res) {
     console.log("flavor: ", req.body.flavor)
     Shop.findById(req.params.id, function (error, shop) {
       shop.flavors.push(req.body.flavorId)
@@ -52,6 +52,26 @@ function show(req, res) {
       })
     })
   }
+function deleteShop(req, res) {
+  Shop.findByIdAndDelete(req.params.id)
+  .then(shop => {
+    res.redirect("/shops")
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/shops")
+  })
+}
+function edit(req, res) {
+  Shop.findByIdAndUpdate(req.params.id)
+  .then(shop => {
+    res.render("shops/edit", {
+      shop,
+      title: "Edit shop"
+    })
+  })
+}
+
 
 export {
   index,
@@ -59,4 +79,6 @@ export {
   create,
   show,
   addFlavorToShops,
+  deleteShop as delete,
+  edit,
 }

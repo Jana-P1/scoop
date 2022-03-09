@@ -8,14 +8,18 @@ import { isLoggedIn } from "../middleware/middleware.js"
 router.get("/", isLoggedIn, shopsCtrl.index)
 // localhost:3000/shops/new
 router.get("/new", isLoggedIn, shopsCtrl.new )
-
+// localhost:3000/books/:id
 router.get("/:id", isLoggedIn, shopsCtrl.show)
+// localhost:3000/books/:id/edit
+router.get("/:id/edit", isLoggedIn, shopsCtrl.edit)
 
 // POST
 // localhost:3000/shops
 router.post("/", isLoggedIn, shopsCtrl.create)
 // localhost:3000/:id/flavors
 router.post("/:id/flavors", isLoggedIn, shopsCtrl.addFlavorToShops)
+// DELETE - localhost:3000/shops
+router.delete("/:id", shopsCtrl.delete)
 
 export {
   router
