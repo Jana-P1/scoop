@@ -34,7 +34,6 @@ nav {
   grid-area: nav;
   display: flex;
   background-color: #BAA6B2;
-  font-size: 1.6rem;
   align-items: center;
   height: 75px;
   justify-content: center;
@@ -44,12 +43,17 @@ nav {
 #icon {
   margin-right: auto;
   color: whitesmoke;
+  font-size: 2.5rem;
 }
 #title {
+  
   margin: 0 auto;
+  font-size: 28px;
+  font-weight: bold;
 }
 #links {
   margin: 20px;
+  font-size: 1.8rem;
 }
 #shops {
   margin: 3px;
@@ -72,9 +76,7 @@ a {
 nav > #logout {
   margin-left: auto;
 }
-nav{
-  
-}
+
 main {
   grid-area: main;
   display: flex;

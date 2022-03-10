@@ -1,0 +1,22 @@
+label {
+  font-size: 2.6rem;
+  font-weight: bold;
+  padding: 10px;
+}
+input {
+  font-size: 2.0rem;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+}
+#btn {
+  margin-right: auto;
+  padding: 10px;
+  border-right: 50px;
+}
+form {
+  justify-content: center;
+}
+#image {
+
+}

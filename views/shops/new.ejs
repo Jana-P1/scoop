@@ -1,20 +1,23 @@
 <%- include("../partials/html-head") %> 
+<link rel="stylesheet" href="/stylesheets/shops/new.css">
 <%- include("../partials/nav") %> 
 
 <main>
+  <h1> <%= title %> </h1>
   <% if (user) { %> 
-    <h1> <%= title %> </h1>
     <form id="add-shops" action="/shops" method="POST">
       <label for="name">Shop Name:
         <input type="text" name="name">
       </label><br>
-      <label for="imageURL"> Image:
+      <label id="image" for="imageURL"> Image:
         <input type="file" name="imageUrl" accept="image/*" capture>
       </label><br>
       <label for="location">Location:
         <input type="text" name="location" placeholder="City, State">
       </label><br>
-      <button type="submit">Add Shop</button>
+      <div id="btn">
+        <button type="submit">Add Shop</button>
+      </div>
     </form>
   <% } %> 
 </main>
