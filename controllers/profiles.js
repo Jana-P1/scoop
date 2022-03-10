@@ -26,7 +26,6 @@ function show(req, res) {
           favorites
         })
       })
-
   })
   }
 function addFavoriteFlavors(req, res) {
