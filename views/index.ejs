@@ -2,10 +2,9 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
   <% if (user?.profile.name) { %>
-    <h2>Tell us more about your passion for ice cream</h2>
-    <a href="/shops">🍨</a>
+    <h2>Tell us more about your ice cream passion</h2>
+    <a href="/shops" id="emoji">🍨</a>
   <% } else { %>
     <h2>Welcome to Scoop! Login with Google to spread the word about your favorite ice cream shops and flavors</h2>
   <% } %>   
