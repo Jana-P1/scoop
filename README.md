@@ -5,26 +5,19 @@
 
 Visit [Scoop](https://scoop-jp.herokuapp.com/)
 
-### Description
-**Home Page**
+## Description
+### Home Page
 
 The user is greeted to the home page and prompted to login using their Google account.
 
-**Main Page**
-
-**Adding Shops to Scoop**
-
-[Enter description here]
-
-**Expanding the list of flavors**
-
-[Enter ]
-
-The user is prompted to click on the ice cream emoji and is redirected to the main page which displays all the ice cream shops.
-
-**User Profiles**
-
-Users can see the profiles of other Scoop users. Users can update their profiles by adding more of their favorite flavors to the **Favorite Flavors** list
+In Scoop users have the ability to:
++ View all shops included in the app
++ View each shop's profile page
++ View user profiles (including their own)
++ Add Shops to the app
++ Add flavors
++ Add/Remove flavors to/from a shop's profile page
++ Add/Remove their favorite flavors to/from their own user profiles 
 
 ### Technologies Used
 
