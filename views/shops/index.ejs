@@ -10,14 +10,14 @@
     <button class="btn" type="submit"> Search
     </button>
   </form>  
-      <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add">Add Shop</a>
+      <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add" class="link">Add Shop</a>
   <section id="shop-list">  
     <h2>All Ice Cream Shops</h2>
     <ul>
       <% shops.forEach(shop => { %> 
         <li>
           <i class="fa-solid fa-ice-cream fa-2x"></i>
-          <a href="/shops/<%= shop.id %>"><%= shop.name %></a>
+          <a href="/shops/<%= shop.id %>" class="link"><%= shop.name %></a>
           <form action="/shops/<%=shop._id %>?_method=DELETE" method="POST">
             <button>Delete Shop</button></form>
         </li>
