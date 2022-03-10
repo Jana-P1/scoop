@@ -87,14 +87,16 @@ function update(req, res) {
   })
 }
 function deleteFlavor(req, res) {
-  Shop.findById(req.params.id)
+  Shop.findById(req.params.id, req.body.flavors)
   .then(shop => {
     shop.flavors.remove({_id: req.params.flavorId})
-    shop.save()
+    shop.save(function(error) {
+      res.redirect(`/shops/${shop._id}`)
+    })
   })
   .catch(error => {
     console.log(error)
-    res.redirect(`/shops/${shop._id}`)
+    res.redirect(`/shops`)
   })
 }
 

@@ -11,27 +11,26 @@
       >
     </div>
   <% } %>
-  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
-  <h2>Get the scoop</h2>
-  <h3><%= isSelf ? "Your" : profile.name %> favorite flavors </h3>
-  <ul>
-    <% profile.favorites.forEach(favorite => { %>
-      <li>
-        <%= favorite.name %> 
-      </li>
-    <% }) %> 
-  </ul>   
-  <% if (isSelf) { %>
-    <h4>Add more to your favorite flavors:</h4>
-    <form action="/profiles/<%= profile._id %>/favorites" method="POST">
-    <select name="favoriteId">
+  <h1>Get the Scoop</h1>
+  <section>
+    <h2>A list of faves:</h2>
+    <ul>
       <% profile.favorites.forEach(favorite => { %>
-        <option value="<%= favorite._id %>"><%= favorite.name %></option>
-      <% }) %> 
-    </select>
-    <button type="submit">Add more flavors</button>
-  </form>
-  <% } %>    
+        <li><%= favorite.name %></li>
+    <% }) %> 
+    </ul>
+  </section>  
+  <!-- <%# if (profile._id.equals(user?.userProfile)) %> 
+    <form action="/profiles/<%# profile._id %>/flavors" method="POST">
+      <select name="flavorId" >
+        <%# flavors.forEach(flavor => { %>
+          <option value="<%# flavor._id %>">
+            <%#flavor.name %>
+          </option>
+        </select>
+        <button type="submit">Add to your favorites</button>
+      </form>
+    <%# }) %>    -->
 </main>
 
 <%- include("../partials/footer") %> 

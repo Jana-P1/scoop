@@ -17,22 +17,22 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
   .populate("favorites")
-  .then(profile => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const isSelf = self._id.equals(profile._id)
-      res.render("profiles/show", {
-        title: `${profile.name}'s profile`,
-        profile,
-        isSelf
+  .exec(function(err, profile) {
+    Flavor.find({_id: {$nin: profile.favorites}},
+      function(error, favorites) {
+        res.render("profiles/show", {
+          title: `${profile.name}'s Profile`,
+          profile,
+          favorites
+        })
       })
-    })
+
   })
   }
 function addFavoriteFlavors(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    profile.favorites.push(req.body.favoriteId)
+    profile.favorites.push(req.body.flavorId)
     profile.save(function(error) {
       res.redirect(`/profiles/${profile._id}`)
     })
@@ -44,3 +44,4 @@ export {
   show,
   addFavoriteFlavors,
 }
+

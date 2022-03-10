@@ -41,6 +41,7 @@ nav {
 nav > #icon{
   margin-right: auto;
 }
+nav >
 nav > #logout {
   margin-left: auto;
 }
@@ -49,4 +50,6 @@ nav
 
 main {
   grid-area: main;
+  display: flex;
+  align-items: center;
 }
