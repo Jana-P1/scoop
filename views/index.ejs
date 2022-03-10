@@ -3,13 +3,9 @@
 
 <main>
   <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
+  <% if (user?.profile.name) { %>
+    <h2>Tell us more about your passion for ice cream</h2>
+    <a href="/shops">🍨</a>
   <% } else { %>
     <h2>Welcome to Scoop! Login with Google to spread the word about your favorite ice cream shops and flavors</h2>
   <% } %>   

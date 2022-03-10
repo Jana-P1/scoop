@@ -23,7 +23,7 @@
   </ul>   
   <% if (isSelf) { %>
     <h4>Add more to your favorite flavors:</h4>
-    <form action="/profiles/<%= profile._id %>/flavors" method="POST">
+    <form action="/profiles/<%= profile._id %>/favorites" method="POST">
     <select name="favoriteId">
       <% profile.favorites.forEach(favorite => { %>
         <option value="<%= favorite._id %>"><%= favorite.name %></option>

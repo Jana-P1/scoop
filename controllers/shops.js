@@ -63,16 +63,27 @@ function deleteShop(req, res) {
   })
 }
 function edit(req, res) {
-  Shop.findByIdAndUpdate(req.params.id)
+  Shop.findById(req.params.id)
+  .populate(Shop.flavors)
   .then(shop => {
     res.render("shops/edit", {
       shop,
-      title: "Edit shop"
+      title: "Edit shop",
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/shops/show")
+    res.redirect("/shops/${shop._id")
+  })
+}
+function update(req, res) {
+  Shop.findByIdAndUpdate(req.params.id, req.body)
+  .then(shop => {
+    res.redirect(`/shops/${shop._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect("/shops/edit")
   })
 }
 function deleteFlavor(req, res) {
@@ -96,5 +107,6 @@ export {
   addFlavorToShops,
   deleteShop as delete,
   edit,
-  deleteFlavor
+  deleteFlavor,
+  update
 }

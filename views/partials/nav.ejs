@@ -4,13 +4,19 @@
 </head>
 <body>
   <nav>
-    <i class="fa-solid fa-ice-cream fa-2x"></i>
-    <h1>Scoop</h1>
-    <a href="/shops" <%- title === "All Shops" ? 'class="active"' : "" %>>Ice Cream Shops</a>
-    <a href="/profiles" <%- title === "All Profiles" ? 'class="active"' :'' %>> Ice Cream Lovers</a>
+    <div id="icon">
+      <i class="fa-solid fa-ice-cream fa-2x"></i>
+    </div>
+    <div id="title">
+      <h1>Scoop</h1>
+    </div>
+    <div id="links">
+      <a href="/shops" <%- title === "All Shops" ? 'class="active"' : "" %>>Ice Cream Shops</a>
+      <a href="/profiles" <%- title === "All Profiles" ? 'class="active"' :'' %>> Ice Cream Lovers</a>
+    </div>
     <div>
       <% if (user) { %>
-        <a href="/auth/logout">
+        <a href="/auth/logout" id="logout">
           <button type="submit">Logout</button>
         </a>
       <% } else { %>

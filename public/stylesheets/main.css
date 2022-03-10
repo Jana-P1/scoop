@@ -17,29 +17,24 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-image: linear-gradient(to right, #faafe9, #dbbaff, #b5c5ff, #8fcfff, #73d6ff, #62dcf5, #61e1e6, #6fe4d3, #84e7bc, #a2e8a4, #c4e78e, #e8e27f);
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  margin: 0;
+  margin: 10px;
 }
 
 nav {
-  background-color: white;
+  display: flex;
   font-size: 1.6rem;
-  display: flex;
-  justify-content: center;
-  
-}
-
-main {
-  display: flex;
   align-items: center;
+  height: 75px;
   justify-content: center;
-  flex-direction: column;
-  font-size: 2.2rem;
 }
-
-h1 {
-  font-size: 3.6rem;
+nav > a:last-child{
+  margin-left: auto 0;
+}
+nav > i {
+  margin-right: auto;
+  padding: 10px
 }
