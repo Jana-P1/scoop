@@ -1,0 +1,30 @@
+#search {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  font-size: 1.8rem;
+}
+#delete-btn {
+  font-size: 2.3rem;
+  color: #323030;
+  background: none;
+}
+#delete-btn:hover {
+  color: #50A29C;
+}
+#second-header {
+  margin: 0 50px;
+}
+#shop-list {
+  font-size: 2.3rem;
+  margin: 10px;
+  background-color: rgba(234, 228, 206, 0.7);
+}
+table thead th {
+  padding: 10px;
+}
+table td {
+  padding: 15px;
+  text-align: center;
+}
+

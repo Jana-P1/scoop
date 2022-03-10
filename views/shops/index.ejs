@@ -1,29 +1,47 @@
 <%- include("../partials/html-head") %> 
+<link rel="stylesheet" href="/stylesheets/shops/index.css">
 <%- include("../partials/nav") %>
 <main>
-  <h1>Scoop</h1>
-  <h2>Scoop is THE place for ice cream lovers to dish on their favorite ice cream shops and their most favored flavors</h2>
-  <div class="links">
-  </div>    
-  <form action="/shops" method="GET" id="search-bar">
-    <input id="search" type="search" name="name" placeholder="Search for ice cream shops by shop name or location"  autocomplete="off">
-    <button class="btn" type="submit"> Search
-    </button>
-  </form>  
-      <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add" class="link">Add Shop</a>
-  <section id="shop-list">  
-    <h2>All Ice Cream Shops</h2>
-    <ul>
+  <div>
+    <h1>Get the Scoop</h1>
+  </div>
+  <div id="second-header">
+    <h2>A space for ice cream lovers to share their passion for ice cream</h2>
+  </div>
+  <div>
+    <form action="/shops" method="GET" id="search-bar">
+      <input id="search" type="search" name="name" placeholder="Search for ice cream shops by shop name or location"  autocomplete="off">
+      <button class="btn" type="submit"> Search
+      </button>
+      </form> 
+  </div>
+  <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add" class="link">Add Shop</a>
+    <h2 id="table-head">All Ice Cream Shops</h2>
+    <table id="shop-list">
+      <thead>
+        <th></th>
+        <th>Shop name</th>
+        <th>Delete</th>
+        </thead>
       <% shops.forEach(shop => { %> 
-        <li>
-          <i class="fa-solid fa-ice-cream fa-2x"></i>
-          <a href="/shops/<%= shop.id %>" class="link"><%= shop.name %></a>
-          <form action="/shops/<%=shop._id %>?_method=DELETE" method="POST">
-            <button>Delete Shop</button></form>
-        </li>
+        <tr>
+          <td>
+            <i class="fa-solid fa-ice-cream"></i>
+          </td>
+          <td>
+            <a href="/shops/<%= shop.id %>" class="link"><%= shop.name %></a>
+          </td>
+          <td>
+            <form action="/shops/<%=shop._id %>?_method=DELETE" method="POST">
+              <button id="delete-btn">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
       <% }) %>   
-      </ul>
-    </section>
+    </table>
+
 </main>
 
 <%- include("../partials/footer") %> 
