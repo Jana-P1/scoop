@@ -10,7 +10,7 @@ router.get("/", isLoggedIn, profilesCtrl.index)
 router.get("/:id", isLoggedIn, profilesCtrl.show)
 
 // POST - localhost:3000/profiles/:id/favorites
-router.post("/:id/favorites", profilesCtrl.addFavoriteFlavors)
+router.post("/:id/flavors", profilesCtrl.addFavoriteFlavors)
 
 export {
   router

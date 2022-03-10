@@ -20,17 +20,19 @@
     <% }) %> 
     </ul>
   </section>  
-  <% if (profile._id.equals(user?.userProfile)) %> 
+  
+    <% if (profile._id.equals(user?.profile._id)) { %>
     <form action="/profiles/<%= profile._id %>/flavors" method="POST">
       <select name="flavorId" >
-        <%= flavors.forEach(flavor => { %>
+        <% flavors.forEach(flavor => { %>
           <option value="<%= flavor._id %>">
             <%= flavor.name %>
           </option>
+          <% }) %>
         </select>
         <button type="submit">Add to your favorites</button>
       </form>
-    <% }) %>   
+    <% } %>
 </main>
 
 <%- include("../partials/footer") %> 

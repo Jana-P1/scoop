@@ -19,11 +19,11 @@ function show(req, res) {
   .populate("favorites")
   .exec(function(err, profile) {
     Flavor.find({_id: {$nin: profile.favorites}},
-      function(error, favorites) {
+      function(error, flavors) {
         res.render("profiles/show", {
           title: `${profile.name}'s Profile`,
           profile,
-          favorites
+          flavors
         })
       })
   })

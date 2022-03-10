@@ -64,7 +64,7 @@ function deleteShop(req, res) {
 }
 function edit(req, res) {
   Shop.findById(req.params.id)
-  .populate(Shop.flavors)
+  .populate("flavors")
   .then(shop => {
     res.render("shops/edit", {
       shop,
