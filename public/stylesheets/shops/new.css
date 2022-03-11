@@ -4,6 +4,14 @@ label {
   padding: 10px;
   margin: 10px;
 }
+select {
+  border: none;
+  font-size: 1.9rem;
+  color: #008294;
+  padding: 5px;
+  border-radius: 12px;
+  margin: 10px 15px;
+}
 input {
   font-size: 1.6rem;
   border: none;
