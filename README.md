@@ -1,16 +1,17 @@
 # Scoop
 ## My Unit 2 project
 
-**Scoop** is a full-stack application built using Node, Express, and MongoDB and  offers a space for people with a passion for ice cream to share their favorite shops and flavors. 
+**Scoop** is a full-stack application built using Node, Express, and MongoDB  with full CRUD (Create, Read, Update, and Delete) capability. It offers a space for people with a passion for ice cream to share their favorite shops and flavors. 
+
+![Scoop](https://i.imgur.com/G3W7DqH.png)
 
 Visit [Scoop](https://scoop-jp.herokuapp.com/)
 
-## Description
-### Home Page
+## Description/Pseudocode 
 
-The user is greeted to the home page and prompted to login using their Google account.
+Scoop requires Google 0auth2 login.
 
-In Scoop users have the ability to:
+Once logged in, users have the ability to:
 + View all shops included in the app
 + View each shop's profile page
 + View user profiles (including their own)
@@ -18,6 +19,11 @@ In Scoop users have the ability to:
 + Add flavors
 + Add/Remove flavors to/from a shop's profile page
 + Add/Remove their favorite flavors to/from their own user profiles 
+
+**Planning/Initial Rendering**
+
+![Wireframe-1](https://i.imgur.com/X4j0rZL.png)
+![Wireframe-2](https://i.imgur.com/uF9pdr5.png)
 
 ### Technologies Used
 
@@ -42,6 +48,8 @@ In Scoop users have the ability to:
 ### Credits
 + [Hero Patterns](https://heropatterns.com/)
 + [ColorSpace](https://mycolor.space/)
++ [Ileriayo Markdown Badges](https://github.com/Ileriayo/markdown-badges)
++ [MDN Docs](https://developer.mozilla.org/en-US/)
 
 ### Stretch Goals
 + Utilize Google maps api to set the location of ice cream shops
