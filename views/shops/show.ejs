@@ -1,48 +1,43 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/shops/show.css">
 <%- include('../partials/nav') %>
 
 <main>
+  <form action="/shops/<%= shop._id %>/edit" id="edit">
+    <button>Edit Shop</button>
+  </form>
+  <form action="/flavors/new" id="add">
+    <button type="submit">
+      Add New Flavor
+    </button>
+  </form>  
   <h1><%= title %> </h1>
-  <section>
     <table>
       <tr>
         <td class="header">Shop Name:</td>
         <td><%= shop.name %></td>
-        <td>
-          <form action="/shops/<%= shop._id %>/edit">
-            <button>Edit Shop</button>
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td class="header">Image:</td>
-        <td><%= shop.imageUrl %></td>
       </tr>
       <tr>
         <td class="header">Location:</td>
         <td><%= shop.location %> </td>
       </tr>
     </table>
-    <h3>Favored Flavors:</h3>
-    <ul>
-      <% shop.flavors.forEach(flavor => { %>
-        <li><%= flavor.name %></li>
-      <% }) %> 
-    </ul>
+    <section id="flavors">
+      <h3>Favored Flavors:</h3>
+      <ul>
+        <% shop.flavors.forEach(flavor => { %>
+          <li><%= flavor.name %></li>
+        <% }) %> 
+      </ul>
+    </section>
     <form action="/shops/<%= shop._id %>/flavors" method="POST">
       <select name="flavorId" >
       <% flavors.forEach(flavor => { %>
         <option value="<%= flavor._id %>"><%= flavor.name %></option>
         <% }) %> 
       </select>
-      <button type="submit">Add to favored flavors</button>
+      <button type="submit">Add to list</button>
     </form>
-    <form action="/flavors/new">
-      <button type="submit">
-        Add New Flavor
-      </button>
-    </form>  
-  </section>
 </main>
 
 <%- include('../partials/footer') %>

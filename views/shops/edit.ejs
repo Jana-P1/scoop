@@ -1,23 +1,21 @@
 <%- include("../partials/html-head") %> 
+<link rel="stylesheet" href="/stylesheets/shops/edit.css">
 <%- include("../partials/nav") %>
 
 <main>
   <h1><%= title %> </h1>
   <form action="/shops/<%= shop._id %>?_method=PUT" method="POST">
-    <table>
+    <table id="shop-details">
+      <thead>
+        <th></th>
+        <th></th>
+      </thead>
       <tr>
         <td>
           <label for="name">Shop Name:</label>
         </td>
         <td>
           <input type="text" name="name" value="<%= shop.name %> ">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="imageUrl">Image:</label>
-        <td>
-          <input type="file" name="imageUrl" accept="image/*" capture value="<%= shop.imageUrl %>">
         </td>
       </tr>
       <tr>
@@ -29,19 +27,19 @@
         </td>
       </tr>
     </table>
-    <button type="submit">Update Shop</button>
+    <button type="submit" id="update">Update Shop</button>
   </form>
   <section id="flavors">
-    <h2>Favored Flavors:</h2>
-      <ul>
+    <table>
+      <tr id="header">
+        <td>Favored Flavors:</td>
+      </tr>
         <% shop.flavors.forEach(flavor => { %>
-          <li><%= flavor.name %>
-            <form action="/shops/<%= shop._id %>/<%= flavor._id %>?_method=DELETE" method="POST">
-              <button type="submit">Delete flavor</button>
-            </form>
-          </li>
+          <tr>
+            <td id="name"><%= flavor.name %></td>
+          </tr>
         <% }) %>
-      </ul>
+      </table>
   </section>
 </main>
 

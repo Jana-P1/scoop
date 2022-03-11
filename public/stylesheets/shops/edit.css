@@ -1,0 +1,23 @@
+table {
+  padding: 10px;
+}
+label {
+  font-size: 2.2rem;
+  font-weight: bold;
+  padding: 10px;
+}
+input {
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 12px;
+  padding:10px;
+}
+
+#name {
+  font-size: 1.9rem;
+}
+#header {
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+

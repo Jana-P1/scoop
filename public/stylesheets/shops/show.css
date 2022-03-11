@@ -1,0 +1,39 @@
+table td {
+  padding: 10px;
+  font-size: 2.2rem;
+}
+.header {
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+form {
+  padding: 10px;
+}
+#edit {
+  margin-left: auto;
+}
+#add {
+  margin-left: auto;
+}
+h3 {
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+#flavors {
+  text-align: left;
+}
+li {
+  font-size: 2.3rem;
+  padding: 8px;
+}
+ul {
+  list-style-type: none;
+}
+select {
+  border: none;
+  font-size: 1.9rem;
+  color: #008294;
+  padding: 5px;
+  border-radius: 12px;
+  margin: 10px 15px;
+}
