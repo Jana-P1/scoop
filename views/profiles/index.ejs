@@ -1,16 +1,17 @@
 <%- include("../partials/html-head") %> 
+<link rel="stylesheet" href="/stylesheets/profiles/index.css">
 <%- include("../partials/nav") %> 
 
 <main>
   <% profiles.forEach(profile => { %>
-    <div>
+    <div id="avatar">
       <a href="/profiles/<%= profile._id %> ">
         <% if (profile.avatar) { %> 
           <img src="<%= profile.avatar %>" alt="<%= profile.name %> ">
         <% } else { %>
           <img src="https://picsum.photos/200" alt="A placeholder avatar">
         <% } %> 
-        <div>
+        <div id="name">
           <p><%= profile.name %> </p>
         </div>     
       </a>

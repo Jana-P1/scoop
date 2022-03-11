@@ -1,0 +1,15 @@
+main {
+  display: flex;
+  flex-direction: row;
+}
+#avatar {
+  margin: 10px;
+}
+
+#name {
+  font-size: 1.6rem;
+}
+
+a {
+color: #823636;
+}
