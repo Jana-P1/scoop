@@ -8,14 +8,14 @@
   <div id="second-header">
     <h2>A space for ice cream lovers to share their passion for ice cream</h2>
   </div>
-  <div>
+  <div id="searchAndAdd">
     <form action="/shops" method="GET" id="search-bar">
       <input id="search" type="search" name="name" placeholder="Search for ice cream shops by shop name or location"  autocomplete="off">
       <button class="btn" type="submit"> Search
       </button>
       </form> 
+      <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add" class="link">Add Shop</a>
   </div>
-  <a href="/shops/new" <%- title === "Add Shop" ? 'class="active"' : "" %> id="add" class="link">Add Shop</a>
     <h2 id="table-head">All Ice Cream Shops</h2>
     <table id="shop-list">
       <thead>

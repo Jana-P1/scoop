@@ -116,3 +116,16 @@ button:hover {
   background-color: #2F4858;
   color: white;
 }
+#searchAndAdd {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  align-items: center;
+}
+#add {
+  margin: 25px;
+  padding: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+
+}
