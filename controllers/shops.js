@@ -24,7 +24,6 @@ function newShop(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  console.log(req.body.owner)
   const shop = new Shop(req.body)
   shop.save((error) => {
     if (error) return res.render("shops/new")
@@ -56,6 +55,7 @@ function addFlavorToShops(req, res) {
     })
   }
 function deleteShop(req, res) {
+  req.body.owner = req.user.profile._id
   Shop.findByIdAndDelete(req.params.id)
   .then(shop => {
     res.redirect("/shops")
