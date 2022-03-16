@@ -32,11 +32,13 @@
             <a href="/shops/<%= shop.id %>" class="link"><%= shop.name %></a>
           </td>
           <td>
+            <% if (shop.owner.equals(user?.profile._id)) { %> 
             <form action="/shops/<%=shop._id %>?_method=DELETE" method="POST">
               <button id="delete-btn">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </form>
+            <% } %> 
           </td>
         </tr>
       <% }) %>   
