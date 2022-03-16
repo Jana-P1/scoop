@@ -11,7 +11,8 @@ const shopSchema = new Schema({
     required: true,
   },
   flavors: [{
-    type: Schema.Types.ObjectId, ref: "Flavor"}]
+    type: Schema.Types.ObjectId, ref: "Flavor"}],
+  owner: {type: Schema.Types.ObjectId, ref: "Profile"}  
 }, {
   timestamps: true
 }

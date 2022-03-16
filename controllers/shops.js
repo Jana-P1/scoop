@@ -23,6 +23,8 @@ function newShop(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile._id
+  console.log(req.body.owner)
   const shop = new Shop(req.body)
   shop.save((error) => {
     if (error) return res.render("shops/new")
@@ -33,6 +35,7 @@ function create(req, res) {
 function show(req, res) {
   Shop.findById(req.params.id)
   .populate("flavors")
+  .populate("owner")
   .exec(function(error, shop) {
     Flavor.find({_id: {$nin: shop.flavors}}, function(error, flavors) {
       res.render("shops/show", {
@@ -79,11 +82,15 @@ function edit(req, res) {
 function update(req, res) {
   Shop.findByIdAndUpdate(req.params.id, req.body)
   .then(shop => {
-    res.redirect(`/shops/${shop._id}`)
+    if(shop.owner.equals(req.user.profile._id)) {
+      res.redirect(`/shops/${shop._id}`)
+    } else {
+      throw new Error ("🚫 Only the owner of this profile can edit")
+    }
   })
   .catch(error => {
     console.log(error)
-    res.redirect("/shops/edit")
+    res.redirect("/shops")
   })
 }
 function deleteFlavor(req, res) {

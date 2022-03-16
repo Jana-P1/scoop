@@ -2,10 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/shops/show.css">
 <%- include('../partials/nav') %>
 
-<main>
-  <form action="/shops/<%= shop._id %>/edit" id="edit">
-    <button>Edit Shop</button>
-  </form>
+<main>  
   <form action="/flavors/new" id="add">
     <button type="submit">
       Add New Flavor
@@ -38,6 +35,11 @@
       </select>
       <button type="submit">Add to list</button>
     </form>
+    <% if (shop.owner.equals(user?.profile._id)) { %>
+      <form action="/shops/<%= shop._id %>/edit" id="edit">
+        <button>Edit Shop</button>
+      </form>
+    <% } %>  
 </main>
 
 <%- include('../partials/footer') %>
