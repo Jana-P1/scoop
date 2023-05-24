@@ -1,9 +1,9 @@
 main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 #avatar {
-  margin: 10px;
+  margin: 5px;
 }
 
 #name {

@@ -9,6 +9,7 @@ import methodOverride from 'method-override'
 import passport from 'passport'
 import { router as profilesRouter } from "./routes/profiles.js"
 import { passUserToView } from './middleware/middleware.js'
+import MongoStore from 'connect-mongo'
 
 
 // connect to MongoDB with mongoose
@@ -49,6 +50,7 @@ app.use(
 // session middleware
 app.use(
   session({
+    secret: process.env.SESSION_SECRET,
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
